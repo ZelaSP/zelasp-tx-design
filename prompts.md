@@ -14,46 +14,56 @@
 
 ## 1. Ferramentas de IA Utilizadas e Finalidades
 
-* **Google Antigravity (Claude & Gemini):** Utilizada como assistente na organização estrutural dos 7 blocos da apresentação executiva, revisão das justificativas individuais de Requisitos Funcionais (RF), Requisitos Não Funcionais (RNF) e Regras de Negócio (RN), geração dos scripts Python (`ReportLab` e `Matplotlib`) para diagramação visual do Diagrama UML de Casos de Uso, Fluxo do Protótipo de Média Fidelidade e Roadmap, além de apoio na formatação visual e redação dos textos.
+* **ChatGPT (OpenAI):** Utilizado como assistente na estruturação do código HTML e estilos CSS para a apresentação executiva em formato widescreen 16:9 (`ZelaSP_Apresentacao_GS_2026.html`), organizando visualmente os cards, a tipografia e o layout dos 12 slides a partir da pauta de conteúdos e especificações técnicas elaboradas pelos alunos; e apoio na redação, síntese e polimento textual de tópicos conceituais (como a síntese da arquitetura de Total Experience: `CX / EX / UX / MX`).
+* **Google Antigravity (Claude / Gemini):** Apoio na auditoria de conformidade dos textos dos slides contra o edital oficial (`GS-CitizenTech.pdf`) e contra as métricas e o código real do projeto (`zelasp-web` e `zelasp-math`); conversão de emojis em ícones vetoriais **SVG** inline para acabamento profissional; apoio técnico na configuração do comando de exportação do PDF em alta fidelidade (`Apresentacao_TX_Design_ZelaSP.pdf`) via Chrome Headless; e suporte na redação, revisão ortográfica e padronização dos arquivos de documentação (`README.md` e `prompts.md`).
+
+> **Nota de Autoria Própria (Entregáveis de Design e Engenharia de Software):**  
+> * **Diagrama UML de Casos de Uso:** A modelagem dos casos de uso, o mapeamento dos 4 atores (`Cidadão`, `Agente Municipal`, `ViaCEP`, `Nó IoT ESP32`), a definição dos 10 casos de uso (`UC01–UC10`), os relacionamentos (`<<include>>` e `<<extend>>`) e a implementação do script em Python (`gerar_diagramas.py` com `matplotlib`) foram concebidos e desenvolvidos **exclusivamente pelos integrantes da equipe**. Nenhuma IA foi utilizada para gerar o diagrama ou sua lógica de casos de uso.  
+> * **Wireframes e Protótipo de Média Fidelidade:** A arquitetura de informação, o layout das 3 telas principais (Novo Relato, Feed Comunitário e Painel Gestor), o fluxo de navegação, a identificação das Heurísticas de Nielsen (pins ① a ⑨) e as diretrizes de Tom de Voz foram criados e estruturados **diretamente pelos alunos**, derivados da aplicação real implementada em React ([`zelasp-web.vercel.app`](https://zelasp-web.vercel.app/)) e das necessidades da pessoa usuária na rua. Nenhuma IA foi utilizada para desenhar as telas ou definir o protótipo.
 
 ---
 
-## 2. Prompts Utilizados durante o Desenvolvimento
+## 2. Prompts Representativos Utilizados durante o Desenvolvimento
 
-### Prompt 1 — Estruturação e Justificativa Individual de RF, RNF e RN
-> *"Com base no escopo do ZelaSP (relato em menos de 15 segundos com ViaCEP e GPS, apoio comunitário +1 para evitar chamados duplicados e painel de triagem da Prefeitura com índice GPCT), estruture os Requisitos Funcionais (RF), Requisitos Não Funcionais (RNF) e Regras de Negócio (RN). Conforme exigido pelo edital, não faça apenas uma lista: para cada item, explicite a descrição, a classificação (por que pertence àquela categoria) e a justificativa ligada ao problema real das ruas de São Paulo."*
+### Prompt 1 — Estruturação do Código HTML/CSS dos 12 Slides 16:9 (ChatGPT)
+> *"Estruture um documento HTML/CSS em formato widescreen 16:9 (proporção 960x540 / 1920x1080) para apresentação executiva de slides do projeto acadêmico ZelaSP. Organize o layout em 12 slides com design system limpo, modo escuro profissional, tipografia moderna (Google Fonts) e cards responsivos, contemplando os conteúdos e seções fornecidos pela equipe: Capa com identificação acadêmica, Descrição do Problema, Escopo Dentro/Fora, Requisitos RF/RNF/RN, visualização do Diagrama UML e dos Wireframes elaborados pelo grupo, Heurísticas de Nielsen, Tom de Voz, Arquitetura TX (CX/EX/UX/MX), Modelagem GPCT, Roadmap de Evolução e Fechamento com ODS."*
 
-### Prompt 2 — Modelagem do Diagrama UML de Casos de Uso e Contextualização
-> *"Gere um Diagrama UML de Casos de Uso legível para a plataforma ZelaSP contendo os atores Cidadão, Agente Municipal da Subprefeitura, API Externa ViaCEP e Nó IoT ESP32, destacando as relações <<include>> e <<extend>> entre os casos de uso e uma tabela contextualizando quem é cada ator, o que faz e qual objetivo pretende alcançar."*
+### Prompt 2 — Apoio na Redação, Síntese e Tom Executivo dos Slides (ChatGPT)
+> *"Ajude a sintetizar os textos técnicos elaborados pela equipe para que caibam com clareza nos slides da apresentação, mantendo a estrutura exigida de Descrição, Classificação e Justificativa para os Requisitos Funcionais, Não Funcionais e Regras de Negócio. O tom de voz deve ser executivo, direto e focado no valor público gerado para o cidadão e para a gestão municipal de São Paulo."*
 
-### Prompt 3 — Mapeamento das Heurísticas de Nielsen, Tom de Voz e Roadmap
-> *"Relacione as telas do nosso protótipo web ZelaSP (Abertura animada com os 4 problemas, Login por perfil, Área do Cidadão e Painel da Prefeitura) com as Heurísticas de Usabilidade de Jakob Nielsen, apontando onde cada heurística aparece nas telas. Em seguida, organize a tabela de Tom de Voz com os textos reais de botões e avisos da interface e estruture o Roadmap em 4 etapas lógicas."*
+### Prompt 3 — Substituição de Emojis por Ícones SVG e Automação de Exportação em PDF (Google Antigravity)
+> *"Substitua todos os emojis presentes no código HTML da apresentação por ícones vetoriais SVG inline correspondentes (estilo Lucide/Feather), garantindo renderização consistente entre navegadores. Além disso, forneça o comando de linha para exportação do arquivo HTML para PDF de alta resolução (16:9 exato sem cortes ou quebras indevidas) utilizando o Google Chrome em modo headless."*
 
-### Prompt 4 — Apoio na Formatação dos Slides em PDF e Escrita dos Textos
-> *"Ajude na formatação visual da apresentação de slides em formato widescreen (16:9) em PDF e ajude a escrever e revisar os textos de cada bloco para que a história fique clara, direta e bem conectada entre problema, solução, experiência do usuário e próximos passos."*
-
----
-
-## 3. Funcionalidades e Artefatos Desenvolvidos com Auxílio da IA
-
-1. **Apresentação Executiva de 10 Slides em PDF (`Apresentacao_TX_Design_ZelaSP.pdf`):** Gerada em formato 16:9 (`960x540 pt`) cobrindo os 7 entregáveis obrigatórios (Capa, Problema, Escopo Dentro/Fora, RF/RNF/RN justificados, Diagrama UML e Contextualização, Protótipo/Heurísticas/Tom de Voz e Roadmap).
-2. **Diagramas Visuais de Engenharia e UX (`assets/`):**
-   * `diagrama_casos_de_uso.png`: Diagrama UML com fronteira do sistema, 4 atores e 10 casos de uso.
-   * `prototipo_media_fidelidade.png`: Fluxo navegável das 4 telas com marcação das heurísticas H1 a H8.
-   * `roadmap_evolucao.png`: Sequência de evolução do projeto em 4 fases.
-3. **Documentação Completa e Ficha da CitizenTech (`README.md`):** Consolidação da proposta e rastreabilidade entre requisitos, casos de uso e telas do protótipo.
+### Prompt 4 — Auditoria Factual e Cruzamento com Dados Oficiais do Projeto (Google Antigravity)
+> *"Revise os textos dos slides comparando-os com o documento oficial da Global Solution, com as fontes públicas da Prefeitura de São Paulo / SMIT e com o repositório em produção do ZelaSP. Aponte e corrija discrepâncias de números (como dados de chamados anuais da rede SP 156), verifique se as regras de negócio refletem fielmente o código React, garanta que os ODS 11 e 9 estejam explicitamente justificados em alinhamento com os demais entregáveis e certifique-se de que estimativas de UX, simulações matemáticas e metas de roadmap estejam devidamente diferenciadas."*
 
 ---
 
-## 4. Como o Grupo Verificou, Testou e Ajustou os Resultados
+## 3. Artefatos Desenvolvidos e Ajustados com Auxílio da IA
 
-1. **Verificação da Regra de Justificativa Obrigatória (Slide 46 do Edital):** Conferimos item por item nas tabelas de `RF01–RF06`, `RNF01–RNF04` e `RN01–RN04` para garantir que nenhum requisito ficasse apenas listado sem explicar *por que pertence àquela categoria* e *por que é necessário para o usuário*.
-2. **Coerência Real entre Requisitos, UML e Protótipo na Vercel:** Validamos que todos os casos de uso do diagrama (`UC01` a `UC10`) e todos os textos citados na seção de **Tom de Voz** correspondem fielmente às funcionalidades e botões reais que implementamos em [https://zelasp-web.vercel.app/](https://zelasp-web.vercel.app/).
-3. **Inspeção Visual Slide a Slide:** Inspecionamos todas as 10 páginas do arquivo `Apresentacao_TX_Design_ZelaSP.pdf` para confirmar ausência de sobreposição de texto, contraste adequado e legibilidade das tabelas e diagramas.
+1. **Apresentação Executiva em HTML/CSS (`ZelaSP_Apresentacao_GS_2026.html`) e PDF (`Apresentacao_TX_Design_ZelaSP.pdf`):** Estruturação do código de layout 16:9, estilização CSS e automação do processo de compilação em PDF.
+2. **Textos e Síntese Executiva dos Slides:** Apoio na redação e revisão gramatical dos textos explicativos dos slides (problema, escopo, detalhamento de requisitos, arquitetura TX e roadmap).
+3. **Documentação Acadêmica (`README.md` e `prompts.md`):** Apoio na padronização textual e formatação das tabelas e seções descritivas.
+
+*(Conforme destacado na seção 1, o Diagrama UML de Casos de Uso e os Wireframes/Protótipo de Média Fidelidade foram elaborados e desenhados exclusivamente pela equipe, sem geração por IA).*
+
+---
+
+## 4. Como o Grupo Verificou, Testou e Corrigiu os Resultados da IA
+
+A revisão crítica e técnica realizada pelos alunos identificou e corrigiu desvios relevantes gerados pelas ferramentas:
+
+1. **Correção da definição do índice GPCT (Alucinação detectada no Slide 10):** Na primeira redação sugerida pela IA para os textos dos slides, a sigla `GPCT` foi incorretamente expandida como *"Grau de Prioridade Crítica Territorial"*. A equipe identificou a inconsistência, consultou o código de [`riskCalculator.js`](../04%20-%20Front-end%20Design/src/utils/riskCalculator.js) e o relatório de Cálculo (`zelasp-math`), e corrigiu o texto para o nome oficial: **Gatilho Preditivo de Contingência Territorial**, mantendo os limiares operacionais reais (`≥2` Atenção / `≥4` Contingência) e a formulação diferencial ($q(t) \ge 30$ com $q'(t) > 0$).
+2. **Alinhamento factual com dados oficiais e separação de métricas (Slide 02 e Slide 11):** A IA havia sugerido estimativas vagas e arredondadas (como *"500 mil chamados"*). A equipe substituiu essas menções pelos dados públicos oficiais da **Prefeitura de São Paulo / SMIT** (**~2 milhões de demandas solucionadas/ano na rede SP 156 nas 32 Subprefeituras**), separando com precisão o que é estimativa de tempo do formulário legado (**5–8 min**), o que é resultado de simulação matemática em 24h (**~1,4x** chamados repetidos, **2h** de antecipação e **−38,5%** de backlog em `zelasp-math`) e o que são metas futuras de roadmap (**META · SUS ≥ 85**, **META · −45%** chamados duplicados).
+3. **Conferência literal com o código React publicado (`zelasp-web.vercel.app`):**
+   * A IA havia criado frases fictícias no slide de **Tom de Voz** (Slide 08). O grupo substituiu todas elas por cópias literais das mensagens de interface reais presentes em `Header.jsx`, `App.jsx` e `viaCepService.js`.
+   * Ajustamos o requisito `RF01` para especificar as **6 categorias** oficiais do formulário (`CATEGORIAS_ZELA`), alinhamos a regra `RN02` ao código do motor de risco (**≥ 10 apoios comunitários → +1 nível**, limite 5) e atualizamos os números do Painel Gestor (Slide 07) para a fila inicial real (`05 Pendentes`, `04 Prioridade máxima`).
+4. **Adequação ao Edital e Refinamento de Apresentação:** A equipe inseriu cards explicativos no Slide 12 justificando a contribuição do ZelaSP às metas dos **ODS 11 e 9** (em coerência com Python, Matemática e Web), ampliou a Tela 01 para listar os 6 botões de categoria e comandou a substituição de emojis por ícones vetoriais SVG, eliminando ruídos visuais.
+5. **Inspeção visual página a página:** As 12 páginas de `Apresentacao_TX_Design_ZelaSP.pdf` foram inspecionadas pela equipe para assegurar legibilidade em tela cheia, conformidade de contraste e proporção `16:9` sem qualquer quebra de layout.
 
 ---
 
 ## 5. Análise Crítica (Benefícios, Limitações e Dificuldades)
 
-* **Benefícios:** O uso da IA permitiu diagramar uma apresentação técnica limpa em 16:9 e gerar o Diagrama UML de Casos de Uso e o fluxo de wireframes de média fidelidade em alta resolução, mantendo total alinhamento com o que já havíamos construído em Python, Matemática e React.
-* **Limitações e Dificuldades:** Inicialmente, descrições genéricas tendem a misturar Requisitos Funcionais com Regras de Negócio. Foi fundamental a revisão conceitual da equipe para separar claramente *ações do sistema* (`RF`), *atributos de qualidade/desempenho* (`RNF`) e *condições de domínio e alçada* (`RN`), amarrando cada item aos bairros reais de São Paulo.
+* **Benefícios:** A utilização de IA generativa acelerou a escrita do código HTML/CSS da apresentação de slides, garantiu agilidade na aplicação de estilos visuais e na conversão para ícones SVG, e serviu como excelente ferramenta de apoio para revisão textual, concisão e adequação da linguagem técnica.
+* **Limitações e Dificuldades:** Ferramentas de IA frequentemente introduzem alucinações técnicas (como inventar significados para siglas internas do projeto), propõem números imprecisos sem citar fontes oficiais e sugerem textos genéricos que não condizem com a experiência real do produto. A modelagem da arquitetura de software (casos de uso UML), o design dos wireframes, a avaliação heurística e o cruzamento com o código-fonte implementado exigiram a atuação direta, o discernimento e a responsabilidade técnica exclusiva dos alunos da equipe.
