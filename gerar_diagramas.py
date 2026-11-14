@@ -52,7 +52,7 @@ def gerar_diagrama_casos_de_uso():
     ax.add_patch(boundary)
     ax.text(
         7.0, 6.82,
-        '«system»  Plataforma ZelaSP (Web App + Motor de Triagem Territorial)',
+        '«system»  Plataforma ZelaSP (Módulos Atuais + Arquitetura Proposta)',
         ha='center', va='center', fontsize=10.5, fontweight='bold', color='#1e40af',
         bbox=dict(boxstyle='round,pad=0.3', facecolor='#eff6ff', edgecolor='#bfdbfe', lw=1)
     )
@@ -63,19 +63,19 @@ def gerar_diagrama_casos_de_uso():
 
     # Atores à direita (Sistemas Externos / Borda IoT)
     draw_stick_figure(ax, 12.75, 5.3, 'API ViaCEP', '«sistema externo»', color='#7c3aed')
-    draw_stick_figure(ax, 12.75, 2.1, 'Nó IoT ESP32', '«sensor de borda»', color='#d97706')
+    draw_stick_figure(ax, 12.75, 2.1, 'Nó IoT ESP32', '«borda proposta»', color='#d97706')
 
     ucs = {
-        'UC01': (4.9, 5.85, 3.1, 0.72, 'UC01: Relatar Ocorrência\nem <15 Segundos', '#eff6ff', '#2563eb'),
-        'UC02': (9.2, 6.00, 2.9, 0.68, 'UC02: Autopreencher Rua\ne Bairro por CEP', '#f5f3ff', '#7c3aed'),
-        'UC03': (9.2, 4.80, 2.9, 0.68, 'UC03: Capturar Coordenadas\nvia GPS do Navegador', '#eff6ff', '#3b82f6'),
+        'UC01': (4.9, 5.85, 3.1, 0.72, 'UC01: Relatar Ocorrência\n(Meta de Tempo: ≤ 15s)', '#eff6ff', '#2563eb'),
+        'UC02': (9.2, 6.00, 2.9, 0.68, 'UC02: Consultar CEP\nvia ViaCEP (Opcional)', '#f5f3ff', '#7c3aed'),
+        'UC03': (9.2, 4.80, 2.9, 0.68, 'UC03: Capturar GPS do\nNavegador (Opcional)', '#eff6ff', '#3b82f6'),
         'UC04': (4.9, 4.65, 3.1, 0.72, 'UC04: Consultar e Filtrar\nChamados do Bairro', '#f8fafc', '#475569'),
         'UC05': (4.9, 3.55, 3.1, 0.72, 'UC05: Apoiar Chamado\nExistente (+1 Apoio)', '#ecfdf5', '#059669'),
         'UC06': (9.2, 3.55, 2.9, 0.72, 'UC06: Calcular Prioridade\nde Risco (Nível 1 a 5)', '#fef3c7', '#d97706'),
         'UC07': (4.9, 2.40, 3.1, 0.72, 'UC07: Monitorar Índice\nTerritorial GPCT', '#ecfdf5', '#047857'),
         'UC08': (4.9, 1.10, 3.1, 0.72, 'UC08: Atualizar Status e\nParecer de Vistoria', '#ecfdf5', '#047857'),
         'UC09': (9.2, 1.15, 2.9, 0.68, 'UC09: Excluir Registro\nInválido (2 Cliques)', '#fef2f2', '#dc2626'),
-        'UC10': (9.2, 2.35, 2.9, 0.68, 'UC10: Emitir Alerta Crítico\nde Queda/Fiação (Borda)', '#fffbeb', '#d97706'),
+        'UC10': (9.2, 2.35, 2.9, 0.68, 'UC10: Emitir Alerta IoT\n(Integração Proposta)', '#fffbeb', '#d97706'),
     }
 
     for _, (cx, cy, w, h, text, fc, ec) in ucs.items():
@@ -112,7 +112,7 @@ def gerar_diagrama_casos_de_uso():
             zorder=5
         )
 
-    draw_rel((6.45, 5.95), (7.75, 6.00), '«include»', '#7c3aed')
+    draw_rel((7.75, 6.00), (6.45, 5.95), '«extend»', '#7c3aed')
     draw_rel((7.75, 4.95), (6.40, 5.65), '«extend»', '#2563eb')
     draw_rel((6.35, 5.60), (7.85, 3.80), '«include»', '#d97706')
     draw_rel((6.45, 3.55), (7.75, 3.55), '«include»', '#059669')
